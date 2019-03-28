@@ -1,6 +1,6 @@
-# Ruby Skeleton
+# Sinatra Skeleton
 
-A skeleton app for building a ruby project.
+A skeleton app for building a ruby sinatra project.
 
 ### Using this skeleton
 
@@ -53,6 +53,14 @@ rm -rf $app_path/.git
    ```sh
    $ docker run --rm -t $YOUR_APP_NAME --name $YOUR_APP_NAME
    ```
+
+### Running
+
+This project uses rackup to start the web server. 
+
+```
+$ rackup
+```
 
 ### External Dependencies
 
