@@ -1,11 +1,16 @@
 FROM ruby:2.5.1
 
-# Need to install CURL for Heroku logging
-RUN apt-get install curl
+RUN apt-get update -qq && apt-get install -y build-essential
 
-WORKDIR /usr/src/app
-COPY Gemfile Gemfile.lock ./
-RUN bundle install --binstubs --without development test
-COPY . .
+ENV APP_HOME /app
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
 
-CMD ["bundle", "exec", "ruby", "main.rb"]
+ADD Gemfile* $APP_HOME/
+RUN bundle install --without development test
+
+ADD . $APP_HOME
+
+EXPOSE 4567
+
+CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "4567"]

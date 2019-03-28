@@ -6,7 +6,6 @@ $LOAD_PATH << File.join('lib')
 # Deps
 require 'logger'
 require 'sinatra'
-require "sinatra/namespace"
 
 # Libs
 require 'lib/server'

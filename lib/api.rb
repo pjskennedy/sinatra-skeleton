@@ -1,9 +1,8 @@
+# frozen_string_literal: true
+
 class Server < Sinatra::Base
-  register Sinatra::Namespace
-  namespace '/api' do
-    get '/things' do
-      content_type :json
-      '{"things": "here"}'
-    end
+  get '/api/things' do
+    content_type :json
+    '{"things": "here"}'
   end
 end
